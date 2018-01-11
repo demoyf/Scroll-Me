@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- <script type="text/javascript">
+    let width = document.querySelector(".my-scroll").clientWidth;
+    let scroll = document.querySelector(".scroll-content");
+    let imageList = scroll.children;
+    console.log(imageList);
+    let start = 0;
+    let end = 0;
+    let step = 30;
+    let current = 0;
+    let index = 1;
+    init();
+    function init() {
+        for(var i = 0;i<imageList.length;i++){
+            var temp = imageList[i];
+            temp.style.left = (width*i+"px");
+            temp.style.width = width+"px";
+        }
+        scroll.style.width = (width * imageList.length) + "px";
+        scroll.style.left = -width + "px";
+    }
+    window.onload = function() {
+        // console.log("clientWidth:"+width);
+        // console.log(imageList);
+        scroll.addEventListener("touchstart", function(event) {
+            let target = event.targetTouches[0];
+            start = target.pageX;
+        })
+        scroll.addEventListener("touchmove", function(event) {
+            let target = event.targetTouches[0];
+            end = target.pageX;
+            if (end < start) {
+                scroll.style.left = -(Math.abs(end - start) + index * width) + "px";
+            } else {
+                // -784 320
+                scroll.style.left = -(index * width - Math.abs(end - start)) + "px";
+    
+            }   
+        });
+        scroll.addEventListener("touchend", function(event) {
+            if (Math.abs(end - start) > Math.floor(width / 4)) {
+                if (end < start) {
+                    current = index * width + Math.abs(start - end);
+                    index++;
+                    scrollToLeft();
+                } else {
+                    // -784 200 1->0  -784 ->0 -584->0   
+                    current = index * width - Math.abs(start - end);
+                    index--;
+                    scrollToRight();
+                }
+                return;
+            } else {
+                if (end < start) {
+                    current = index * width + Math.abs(start - end);
+                } else {
+                    current = index * width - Math.abs(start - end);
+                }
+                scrollReturn();
+                return;
+            }
+        });
+    }
+    
+    function scrollToLeft() {
+        if (current > width * index) {
+            scroll.style.left = (-width * index) + "px";
+            if (index == imageList.length - 1) {
+                scroll.style.left = -width + "px";
+                index = 1;
+            }
+            return;
+        }
+        scroll.style.left = -current + "px";
+        current += step;
+        window.requestAnimationFrame(scrollToLeft);
+    }
+    
+    function scrollToRight() {
+        if (current < index * width) {
+            if (index == 0) {
+                scroll.style.left = -(width * (imageList.length - 2)) + "px";
+                index = imageList.length - 2;
+            } else {
+                scroll.style.left = (-width * index) + "px";
+            }
+            return;
+        }
+        scroll.style.left = -current + "px";
+        current -= step;
+        window.requestAnimationFrame(scrollToRight);
+    }
+    
+    function scrollReturn() {
+        if (current < index * width) {
+            scroll.style.left = -(index * width) + "px";
+            return;
+        }
+        scroll.style.left = (-current) + "px";
+        current -= step;
+        window.requestAnimationFrame(scrollReturn);
+    }
+    </script> -->
+</body>
+</html>
